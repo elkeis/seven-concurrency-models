@@ -11,7 +11,11 @@ public class HelloWorld implements ITask {
         };
 
         mainThread.start();
-        Thread.yield();
+        try {
+            Thread.sleep(1);
+        } catch (Exception e) {
+            //
+        }
         System.out.println("Hello from main thread");
     }
 }

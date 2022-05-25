@@ -18,6 +18,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import ThreadsAndLocks.counting.CountingTask;
+import ThreadsAndLocks.puzzle.PuzzleTask;
 
 public class App {
     private Map<String, ITask> tasks = new HashMap<String, ITask>();
@@ -28,6 +29,7 @@ public class App {
     private App() {
         this.tasks.put("HelloWorld", new HelloWorld());
         this.tasks.put("Counting", new CountingTask());
+        this.tasks.put("Puzzle", new PuzzleTask());
 
         this.options.addOption("t", "task", true, "Enter name of task you want to run: " + tasks.keySet().toString());
         this.options.addOption("h", "help", false, "Help message.");

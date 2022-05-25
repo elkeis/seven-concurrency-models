@@ -18,6 +18,7 @@ import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
 import ThreadsAndLocks.counting.CountingTask;
+import ThreadsAndLocks.philosophers.PhilosophersTask;
 import ThreadsAndLocks.puzzle.PuzzleTask;
 
 public class App {
@@ -30,6 +31,7 @@ public class App {
         this.tasks.put("HelloWorld", new HelloWorld());
         this.tasks.put("Counting", new CountingTask());
         this.tasks.put("Puzzle", new PuzzleTask());
+        this.tasks.put("Philosophers", new PhilosophersTask());
 
         this.options.addOption("t", "task", true, "Enter name of task you want to run: " + tasks.keySet().toString());
         this.options.addOption("h", "help", false, "Help message.");

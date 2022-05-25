@@ -1,5 +1,5 @@
 package ThreadsAndLocks;
 
-interface ITask {
+public interface ITask {
     public void run();
 }

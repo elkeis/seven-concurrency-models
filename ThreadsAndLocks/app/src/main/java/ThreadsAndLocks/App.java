@@ -17,6 +17,8 @@ import org.apache.commons.cli.Option;
 import org.apache.commons.cli.Options;
 import org.apache.commons.cli.ParseException;
 
+import ThreadsAndLocks.counting.CountingTask;
+
 public class App {
     private Map<String, ITask> tasks = new HashMap<String, ITask>();
 
@@ -25,6 +27,7 @@ public class App {
 
     private App() {
         this.tasks.put("HelloWorld", new HelloWorld());
+        this.tasks.put("Counting", new CountingTask());
 
         this.options.addOption("t", "task", true, "Enter name of task you want to run: " + tasks.keySet().toString());
         this.options.addOption("h", "help", false, "Help message.");
@@ -32,6 +35,10 @@ public class App {
 
     private void printHelp() {
         this.helpFormatter.printHelp("app", this.options);
+        System.out.println("For gradle directed execution run one of the following:");
+        this.tasks.keySet().forEach((task) -> {
+            System.out.println("./gradlew run --args=\"-t " + task + "\"");
+        });
     }
 
     public void run(String taskName) {
